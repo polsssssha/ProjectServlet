@@ -12,6 +12,7 @@ import java.io.IOException;
 
 @WebServlet("/login")
 public class LogInServlet extends HttpServlet {
+
     AccountService accountService = new AccountService();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

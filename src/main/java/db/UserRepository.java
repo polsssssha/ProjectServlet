@@ -1,17 +1,16 @@
 package db;
 
+import com.mysql.cj.jdbc.MysqlDataSource;
 import model.UserModel;
 import java.sql.*;
 import java.util.*;
-import java.sql.DriverManager;
 
-public class DBHandler {
-    private final DataSource dataSource = new DataSource();
+public class UserRepository {
+    private final MysqlDataSource dataSource = new DataSource().getDataSource();
 
-
-/*
     public List<UserModel> getAllUsers(){
-        try(Statement statement = this.connection.createStatement()){
+        try(Connection conn = dataSource.getConnection();
+            Statement statement = conn.createStatement()){
             ArrayList<UserModel> users = new ArrayList<>();
             ResultSet resultSet = statement.executeQuery("SELECT login, password, email FROM users");
             while (resultSet.next()){
@@ -22,14 +21,15 @@ public class DBHandler {
             if (users.isEmpty())
                 return Collections.emptyList();
             return users;
-        } catch (SQLException e){
-            e.printStackTrace();
-            return Collections.emptyList();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
+
     }
 
     public void addUser(UserModel user) {
-        try (PreparedStatement statement = this.connection.prepareStatement(
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement statement = conn.prepareStatement(
                 "INSERT INTO users(`login`, `password`, `email`) VALUES(?,?,?)")) {
             statement.setObject(1, user.getLogin());
             statement.setObject(2, user.getPassword());
@@ -38,9 +38,6 @@ public class DBHandler {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }*/
-    public static void main(String[] args) {
-        DataSource dataSource1 = new DataSource();
-        dataSource1.getDataSource();
     }
+
 }

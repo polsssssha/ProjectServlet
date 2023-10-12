@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 
 @WebServlet("/registration")
 public class RegistrationServlet extends HttpServlet {
+
     AccountService accountService = new AccountService();
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -36,5 +37,8 @@ public class RegistrationServlet extends HttpServlet {
 
     private void redirect(UserModel user, HttpServletRequest req, HttpServletResponse resp) throws IOException {
         resp.sendRedirect("http://localhost:8080/ "+ "?path=" + user.getHomeDirectory());
-    }
+
+
+   }
+
 }
