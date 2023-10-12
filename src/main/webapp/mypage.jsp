@@ -2,7 +2,8 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Date" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.devcolibri.servlet.FileModel" %>
+<%@ page import="model.FileModel" %>
+<%@ page import="model.FileModel" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -16,6 +17,7 @@
 <%= new java.text.SimpleDateFormat("dd.MM.yyyy HH:mm:ss").format(new Date()) %>
 <h1> Directory: ${path} </h1>
 <a style="text-decoration: none;" href="./?path=${requestScope.path.substring(0, requestScope.path.lastIndexOf('/'))}">Up</a>
+<a href="./logout" class="btn">LogOut</a></th>
 <br>
 <br>
 <table>
