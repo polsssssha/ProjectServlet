@@ -15,7 +15,6 @@ import java.util.List;
 
 @WebServlet(urlPatterns = {"/"})
 public class MainServlet extends HttpServlet {
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         DirectoryWorker dw = new DirectoryWorker();
@@ -36,9 +35,6 @@ public class MainServlet extends HttpServlet {
             path = user.getHomeDirectory();
             resp.sendRedirect("http://localhost:8080/?path=" + path);
         }
-        /*if (path.matches("[A-Z]:")) {
-            path = File.listRoots()[0].getPath();
-        }*/
 
         String absolutePath = new File(path).getAbsolutePath();
         List<FileModel> content;
