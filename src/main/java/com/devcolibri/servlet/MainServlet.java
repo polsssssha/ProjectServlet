@@ -1,5 +1,9 @@
 package com.devcolibri.servlet;
 
+import model.DirectoryWorker;
+import model.FileModel;
+import model.UserModel;
+import service.AccountService;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +15,7 @@ import java.util.List;
 
 @WebServlet(urlPatterns = {"/"})
 public class MainServlet extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         DirectoryWorker dw = new DirectoryWorker();
@@ -21,9 +26,20 @@ public class MainServlet extends HttpServlet {
         } else {
             path = "/";
         }
-        if (path.matches("[A-Z]:")) {
-            path = File.listRoots()[0].getPath();
+        AccountService accountService = new AccountService();
+        UserModel user = accountService.getBySession(req.getSession().getId());
+        if (accountService.hasActiveSession() || accountService.getBySession(req.getSession().getId()) == null) {
+            resp.sendRedirect("http://localhost:8080/login");
         }
+
+        if (!path.contains(user.getLogin()) || path.contains("/..")) {
+            path = user.getHomeDirectory();
+            resp.sendRedirect("http://localhost:8080/?path=" + path);
+        }
+        /*if (path.matches("[A-Z]:")) {
+            path = File.listRoots()[0].getPath();
+        }*/
+
         String absolutePath = new File(path).getAbsolutePath();
         List<FileModel> content;
         content = dw.getList(path);
