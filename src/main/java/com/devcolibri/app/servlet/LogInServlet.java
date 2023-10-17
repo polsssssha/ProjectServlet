@@ -1,7 +1,7 @@
-package com.devcolibri.servlet;
+package com.devcolibri.app.servlet;
 
-import model.UserModel;
-import service.AccountService;
+import com.devcolibri.app.model.UserModel;
+import com.devcolibri.app.service.AccountService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

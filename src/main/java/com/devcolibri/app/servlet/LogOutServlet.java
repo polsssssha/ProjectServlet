@@ -1,6 +1,6 @@
-package com.devcolibri.servlet;
+package com.devcolibri.app.servlet;
 
-import service.AccountService;
+import com.devcolibri.app.service.AccountService;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

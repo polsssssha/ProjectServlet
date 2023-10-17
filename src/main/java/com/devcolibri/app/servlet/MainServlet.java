@@ -1,9 +1,9 @@
-package com.devcolibri.servlet;
+package com.devcolibri.app.servlet;
 
-import model.DirectoryWorker;
-import model.FileModel;
-import model.UserModel;
-import service.AccountService;
+import com.devcolibri.app.model.DirectoryWorker;
+import com.devcolibri.app.model.FileModel;
+import com.devcolibri.app.model.UserModel;
+import com.devcolibri.app.service.AccountService;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

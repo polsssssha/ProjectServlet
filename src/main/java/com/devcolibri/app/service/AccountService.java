@@ -1,8 +1,8 @@
-package service;
+package com.devcolibri.app.service;
 
-import db.UsersDAO;
-import db.UsersDAOImpl;
-import model.UserModel;
+import com.devcolibri.app.db.UsersDAO;
+import com.devcolibri.app.db.UsersDAOImpl;
+import com.devcolibri.app.model.UserModel;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;

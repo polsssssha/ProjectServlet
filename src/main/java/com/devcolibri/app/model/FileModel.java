@@ -1,4 +1,4 @@
-package model;
+package com.devcolibri.app.model;
 
 public class FileModel {
     private String name;

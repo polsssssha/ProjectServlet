@@ -1,6 +1,6 @@
-package db;
+package com.devcolibri.app.db;
 
-import model.UserModel;
+import com.devcolibri.app.model.UserModel;
 import java.util.List;
 
 public interface UsersDAO {

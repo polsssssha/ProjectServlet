@@ -2,8 +2,8 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Date" %>
 <%@ page import="java.util.List" %>
-<%@ page import="model.FileModel" %>
-<%@ page import="model.FileModel" %>
+<%@ page import="com.devcolibri.app.model.FileModel" %>
+<%@ page import="com.devcolibri.app.model.FileModel" %>
 <!doctype html>
 <html lang="en">
 <head>

@@ -1,13 +1,12 @@
-package com.devcolibri.servlet;
+package com.devcolibri.app.servlet;
 
-import model.UserModel;
-import service.AccountService;
+import com.devcolibri.app.model.UserModel;
+import com.devcolibri.app.service.AccountService;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Objects;
 import javax.servlet.ServletException;
 
 @WebServlet("/registration")

@@ -1,4 +1,4 @@
-package com.devcolibri.servlet;
+package com.devcolibri.app.servlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
