@@ -15,9 +15,11 @@ import java.util.List;
 
 @WebServlet(urlPatterns = {"/"})
 public class MainServlet extends HttpServlet {
+    public AccountService accountService = new AccountService();
+    public DirectoryWorker dw = new DirectoryWorker();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        DirectoryWorker dw = new DirectoryWorker();
         String path;
         String uri = req.getQueryString();
         if (uri != null && uri.contains("path")) {
@@ -25,13 +27,13 @@ public class MainServlet extends HttpServlet {
         } else {
             path = "/";
         }
-        AccountService accountService = new AccountService();
+
         UserModel user = accountService.getBySession(req.getSession().getId());
         if (accountService.hasActiveSession() || accountService.getBySession(req.getSession().getId()) == null) {
             resp.sendRedirect("http://localhost:8080/login");
         }
 
-        if (!path.contains(user.getLogin()) || path.contains("/..")) {
+        if (user!= null && !path.contains(user.getLogin()) || path.contains("/..")) {
             path = user.getHomeDirectory();
             resp.sendRedirect("http://localhost:8080/?path=" + path);
         }

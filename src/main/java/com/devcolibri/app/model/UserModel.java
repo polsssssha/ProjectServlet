@@ -3,7 +3,7 @@ package com.devcolibri.app.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "usersTable")
+@Table(name = "users")
 public class UserModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,7 +14,7 @@ public class UserModel {
     private String password;
     @Column(name = "email")
     private String email;
-    @Column(name = "homeDirectory")
+    @Column(name = "home_directory")
     private String homeDirectory;
 
     public UserModel(String login, String password) {
